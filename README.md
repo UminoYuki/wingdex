@@ -9,6 +9,16 @@
 > 面向使用者的完整功能说明（不含实现细节）见 [`docs/功能文档.md`](docs/功能文档.md)。
 > 设计与实现计划（卡面格线规范、卡片规则、成就定义等）见 [`docs/开发计划.md`](docs/开发计划.md)。
 
+## 截图
+
+**物种详情**
+
+![物种详情](docs/screenshots/species-detail.jpg)
+
+**导入待分类**
+
+![导入待分类](docs/screenshots/inbox.jpg)
+
 ## 快速开始
 
 环境：Node 20+，Windows / macOS / Linux 均可跑 Web 模式；打包桌面端需能下载 Electron 二进制。
