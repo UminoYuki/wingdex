@@ -19,6 +19,7 @@ import type {
   ProtectionMatch,
   ScanResult,
   ScanStatus,
+  CardSummary,
   SettingsResponse,
   Species,
   SpeciesListResponse,
@@ -481,7 +482,7 @@ export function useWikiDetail(title: string | null) {
   return useQuery({
     queryKey: ['wiki', 'detail', title ?? ''],
     queryFn: () =>
-      api.get<{ detail: WikiDetail | null; morphology: Morphology | null; protection: ProtectionMatch | null; cardSummary: string | null }>(
+      api.get<{ detail: WikiDetail | null; morphology: Morphology | null; protection: ProtectionMatch | null; cardSummary: CardSummary | null }>(
         '/wiki/detail',
         { title: title ?? '' },
       ),

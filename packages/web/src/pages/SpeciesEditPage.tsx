@@ -81,8 +81,16 @@ export default function SpeciesEditPage() {
       lengthCm: detail.data?.morphology?.lengthCm ?? form.lengthCm,
       weightG: detail.data?.morphology?.weightG ?? form.weightG,
       wingspanCm: detail.data?.morphology?.wingspanCm ?? form.wingspanCm,
-      distribution: info.distribution.length ? info.distribution : form.distribution,
-      habitats: info.habitats.length ? info.habitats : form.habitats,
+      distribution: info.distribution?.length
+        ? info.distribution
+        : detail.data?.morphology?.distribution?.length
+          ? detail.data.morphology.distribution
+          : form.distribution,
+      habitats: info.habitats?.length
+        ? info.habitats
+        : detail.data?.morphology?.habitats?.length
+          ? detail.data.morphology.habitats
+          : form.habitats,
       summaryZh: info.extract || form.summaryZh,
       summaryEn: info.extractEn ?? form.summaryEn,
     })

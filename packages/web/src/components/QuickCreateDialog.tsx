@@ -4,6 +4,7 @@ import { Search, Sparkles } from 'lucide-react'
 import { Badge, Button, Combobox, Dialog, Input } from './ui'
 import { useWikiPreview } from '../api/hooks'
 import { errorMessage } from '../api/client'
+import { cardSummaryText } from '../api/types'
 import { useUiStore } from '../store/uiStore'
 
 /** 顶栏「录入物种」：先用维基候选检索，命中后跳转编辑页预填抓取结果 */
@@ -95,7 +96,7 @@ export function QuickCreateDialog() {
               {data.detail.scientificName ? <Badge tone="plume">{data.detail.scientificName}</Badge> : null}
               {data.detail.familyName ? <Badge tone="moss">{data.detail.familyName}</Badge> : null}
               {data.detail.iucnStatus ? <Badge tone="gold">IUCN {data.detail.iucnStatus}</Badge> : null}
-              {data.cardSummary ? <Badge tone="outline">卡面摘要 {data.cardSummary.length} 字</Badge> : null}
+              {data.cardSummary ? <Badge tone="outline">卡面摘要 {cardSummaryText(data.cardSummary).length} 字</Badge> : null}
             </div>
             <Button size="sm" variant="primary" className="w-fit" onClick={() => goCreate(data.detail!.title, data.detail!.qid)}>
               用该结果创建物种

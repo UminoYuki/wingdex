@@ -649,7 +649,7 @@ export function cardStats(): CardStatsBundle {
     deck: all<{ id: number; name: string; count: number }>(
       db,
       `SELECT d.id AS id, d.name AS name, COUNT(c.id) AS count FROM decks d
-       LEFT JOIN cards c ON c.deck_id = d.id GROUP BY d.id ORDER BY d.sort_order ASC, d.id ASC`,
+       LEFT JOIN cards c ON c.deck_id = d.id GROUP BY d.id ORDER BY d.id ASC`,
     ),
     stars: all<{ stars: number; count: number }>(
       db,

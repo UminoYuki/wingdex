@@ -406,8 +406,8 @@ export interface WikiDetail {
   genusName: string | null
   iucnStatus: string | null
   iucnYear: number | null
-  distribution: string[]
-  habitats: string[]
+  distribution?: string[]
+  habitats?: string[]
   enName?: string | null
   /** 服务端抓取时被降级的子请求（英文简介 / 维基数据 / 配图） */
   warnings?: string[]
@@ -418,6 +418,8 @@ export interface Morphology {
   weightG: string | null
   wingspanCm: string | null
   source: string | null
+  habitats?: string[]
+  distribution?: string[]
 }
 
 export interface ProtectionMatch {
@@ -426,11 +428,19 @@ export interface ProtectionMatch {
   isSanyou: boolean
 }
 
+/** 服务端返回 { text, truncated, chars }；老版本可能是纯字符串 */
+export type CardSummary = string | { text: string; truncated: boolean; chars: number }
+
+export function cardSummaryText(value: CardSummary | null | undefined): string {
+  if (!value) return ''
+  return typeof value === 'string' ? value : value.text ?? ''
+}
+
 export interface WikiPreview {
   candidates: WikiCandidate[]
   detail: WikiDetail | null
   morphology: Morphology | null
-  cardSummary: string | null
+  cardSummary: CardSummary | null
 }
 
 /** 与服务端 scanService.scanDirectory 的返回值一致 */

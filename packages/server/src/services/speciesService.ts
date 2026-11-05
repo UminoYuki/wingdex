@@ -431,7 +431,7 @@ export interface Facets {
 
 export function getFacets(): Facets {
   const db = getDb()
-  const simple = (column: string, table = 'species', where = `IS NOT NULL AND ${column} != ''`) =>
+  const simple = (column: string, table = 'species', where = `${column} IS NOT NULL AND ${column} != ''`) =>
     all<{ value: string; count: number }>(
       db,
       `SELECT ${column} AS value, COUNT(*) AS count FROM ${table} WHERE ${where}

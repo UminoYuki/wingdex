@@ -47,23 +47,28 @@ export default function InboxPage() {
   const total = stream.data?.pages[0]?.total ?? photos.length
   const sentinel = useRef<HTMLDivElement>(null)
 
+  const { hasNextPage, isFetchingNextPage, fetchNextPage, refetch: refetchStream } = stream
+
   useEffect(() => {
     const node = sentinel.current
     if (!node) return
     const observer = new IntersectionObserver((entries) => {
-      if (entries[0]?.isIntersecting && stream.hasNextPage && !stream.isFetchingNextPage) {
-        void stream.fetchNextPage()
+      if (entries[0]?.isIntersecting && hasNextPage && !isFetchingNextPage) {
+        void fetchNextPage()
       }
     })
     observer.observe(node)
     return () => observer.disconnect()
-  }, [stream])
+  }, [hasNextPage, isFetchingNextPage, fetchNextPage])
 
+  // 扫描完成后刷新待分类列表：只在「进行中 → 结束」那一刻刷新一次。
+  // 以前依赖整个 stream 对象，它每次渲染都是新的，扫描结束后会无限 refetch 第一页。
+  const wasRunning = useRef(false)
+  const scanRunning = Boolean(scanStatus.data?.running)
   useEffect(() => {
-    const finished = scanStatus.data && !scanStatus.data.running && scanStatus.data.lastResult
-    if (finished) void stream.refetch()
-    // 扫描完成后刷新待分类列表
-  }, [scanStatus.data?.running, scanStatus.data?.lastResult, stream])
+    if (wasRunning.current && !scanRunning) void refetchStream()
+    wasRunning.current = scanRunning
+  }, [scanRunning, refetchStream])
 
   const options = useMemo(
     () =>

@@ -1,5 +1,5 @@
 import { RefreshCw, Search, Sparkles } from 'lucide-react'
-import type { WikiCandidate, WikiDetail, Morphology, ProtectionMatch } from '../../api/types'
+import { cardSummaryText, type CardSummary, type WikiCandidate, type WikiDetail, type Morphology, type ProtectionMatch } from '../../api/types'
 import { Badge, Button, Input, Skeleton } from '../ui'
 import { cn } from '../../lib/cn'
 
@@ -10,7 +10,7 @@ interface WikiPickerProps {
   loading: boolean
   activeTitle: string | null
   onPick: (title: string) => void
-  detail?: { detail: WikiDetail | null; morphology: Morphology | null; protection: ProtectionMatch | null; cardSummary: string | null } | null
+  detail?: { detail: WikiDetail | null; morphology: Morphology | null; protection: ProtectionMatch | null; cardSummary: CardSummary | null } | null
   detailLoading?: boolean
   /** 候选检索失败原因（来自服务端，如限流、超时、网络不可达） */
   errorMessage?: string | null
@@ -141,7 +141,7 @@ export function WikiPicker({
             ) : null}
             {detail.cardSummary ? (
               <p className="rounded-sm bg-black/30 px-2.5 py-2 text-micro leading-relaxed text-fog-200">
-                卡面摘要预览：{detail.cardSummary}
+                卡面摘要预览：{cardSummaryText(detail.cardSummary)}
               </p>
             ) : null}
             <div className="flex justify-end">
