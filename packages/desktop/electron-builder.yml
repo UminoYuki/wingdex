@@ -1,0 +1,52 @@
+appId: com.birdatlas.desktop
+productName: Wingdex
+copyright: Copyright © 2026 UminoYuki
+
+directories:
+  output: release
+  buildResources: build
+
+files:
+  - dist/**/*
+  - package.json
+  - '!**/*.map'
+
+extraResources:
+  # 前端构建产物随安装包分发，主进程按 BA_WEB_DIST 加载
+  - from: ../web/dist
+    to: web
+  - from: ../server/dist
+    to: server-dist
+
+asar: true
+asarUnpack:
+  - '**/node_modules/better-sqlite3/**'
+  - '**/node_modules/sharp/**'
+  - '**/node_modules/@img/**'
+
+npmRebuild: false
+nodeGypRebuild: false
+
+win:
+  target:
+    - target: dir
+      arch:
+        - x64
+    - target: portable
+      arch:
+        - x64
+  artifactName: '${productName}-${version}-${arch}.${ext}'
+  # 关闭 exe 资源改写（rcedit 图标/版本信息）与签名。
+  # 原因：electron-builder 会为 rcedit/signtool 下载 winCodeSign 压缩包，
+  # 包内 darwin/linux 目录含符号链接，普通权限的 Windows 账户解压必然报
+  # 「无法创建符号链接」并中断打包（需开发者模式或管理员权限才能解压）。
+  # 本项目未提供应用图标（build/icon.ico），改写资源无收益；证书也未配置，
+  # 签名本就会被跳过。开启开发者模式后可移除此项恢复图标/版本信息写入。
+  signAndEditExecutable: false
+
+# 便携版单文件 exe：双击即用、免安装。
+# 程序会被解包到临时目录运行，数据目录因此取 PORTABLE_EXECUTABLE_DIR
+# （即用户双击的那个 exe 所在目录）下的 .data，整包可拷走，见 src/paths.ts。
+portable:
+  artifactName: '${productName}-${version}-portable.${ext}'
+  requestExecutionLevel: user

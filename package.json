@@ -1,0 +1,28 @@
+{
+  "name": "bird-atlas",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Wingdex · 生灵图鉴：本地运行的鸟类与动物拍摄图鉴，自动抓取维基物种资料，支持动物卡制作与成就收集",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n server,web -c cyan,magenta \"npm run dev:server\" \"npm run dev:web\"",
+    "dev:server": "npm run dev -w @ba/server",
+    "dev:web": "npm run dev -w @ba/web",
+    "dev:desktop": "npm run build -w @ba/web && npm run dev -w @ba/desktop",
+    "build": "npm run build -w @ba/web && npm run build -w @ba/server && npm run build -w @ba/desktop",
+    "start": "npm run start -w @ba/desktop",
+    "dist": "npm run build && npm run dist -w @ba/desktop",
+    "dist:portable": "npm run build && npm run dist:portable -w @ba/desktop",
+    "typecheck": "npm run typecheck -w @ba/server && npm run typecheck -w @ba/web && npm run typecheck -w @ba/desktop",
+    "check:grid": "npm run check:grid -w @ba/web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

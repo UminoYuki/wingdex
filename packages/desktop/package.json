@@ -1,0 +1,31 @@
+{
+  "name": "@ba/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Wingdex · 生灵图鉴桌面外壳：主进程内嵌本地服务、离屏窗口卡片导出与打包配置",
+  "author": "UminoYuki",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "npm run build && npm run stage-native && electron .",
+    "build": "tsc -p tsconfig.json",
+    "start": "npm run stage-native && electron .",
+    "stage-server": "node scripts/stage-server.cjs",
+    "stage-native": "node scripts/stage-native.cjs",
+    "verify-pack": "node scripts/verify-pack.cjs",
+    "dist": "npm run build && npm run stage-server && npm run stage-native && electron-builder --win --x64 --dir && npm run verify-pack",
+    "dist:portable": "npm run build && npm run stage-server && npm run stage-native && electron-builder --win --x64 --config.win.target=portable && npm run verify-pack",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@ba/server": "0.1.0",
+    "archiver-utils": "^5.0.2",
+    "color-convert": "^2.0.1",
+    "color-name": "^1.1.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.9",
+    "electron": "33.4.11",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.7.2"
+  }
+}
