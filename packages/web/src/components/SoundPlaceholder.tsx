@@ -38,7 +38,7 @@ export function SoundPlaceholder({ speciesId, kind, filePath, className }: Sound
           <video className="w-full rounded-md" controls preload="none" src={mediaUrl.speciesAsset(speciesId, 'video')} />
         )
       ) : (
-        <div className="flex flex-col items-center gap-3 rounded-md border border-dashed border-white/[0.10] bg-white/[0.02] px-4 py-6">
+        <div className="flex flex-col items-center gap-3 rounded-md border border-dashed border-line/[0.10] bg-line/[0.02] px-4 py-6">
           <div className="flex h-12 items-end gap-[3px]">
             {BARS.map((height, index) => (
               <span

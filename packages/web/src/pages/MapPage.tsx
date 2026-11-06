@@ -126,7 +126,7 @@ export default function MapPage() {
                       key={photo.id}
                       type="button"
                       onClick={() => openViewer(placePhotos.map((item) => item.id), placePhotos.indexOf(photo))}
-                      className="group aspect-[4/3] overflow-hidden rounded-md border border-white/[0.08] bg-ink-800 transition-all duration-fast hover:-translate-y-0.5 hover:border-moss/40"
+                      className="group aspect-[4/3] overflow-hidden rounded-md border border-line/[0.08] bg-ink-800 transition-all duration-fast hover:-translate-y-0.5 hover:border-moss/40"
                     >
                       <img
                         src={mediaUrl.thumb(photo.id, 240)}
@@ -158,7 +158,7 @@ function PointRow({ point, active, onSelect }: { point: GeoPointItem; active: bo
       type="button"
       onClick={onSelect}
       className={`flex items-center gap-2.5 rounded-md border px-3 py-2 text-left transition-colors duration-base ${
-        active ? 'border-moss/50 bg-moss/[0.08]' : 'border-white/[0.06] bg-white/[0.02] hover:border-moss/30'
+        active ? 'border-moss/50 bg-moss/[0.08]' : 'border-line/[0.06] bg-line/[0.02] hover:border-moss/30'
       }`}
     >
       <MapPin className={`h-3.5 w-3.5 shrink-0 ${active ? 'text-moss' : 'text-fog-300'}`} />

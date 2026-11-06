@@ -7,7 +7,7 @@ const iconButtonVariants = cva(
   {
     variants: {
       variant: {
-        ghost: 'text-fog-200 hover:bg-white/[0.07] hover:text-fog-100',
+        ghost: 'text-fog-200 hover:bg-line/[0.07] hover:text-fog-100',
         glass: 'glass text-fog-100 hover:border-moss/40 hover:text-moss-soft',
         danger: 'text-fog-200 hover:bg-danger/15 hover:text-danger',
         solid: 'bg-moss/90 text-ink-900 hover:bg-moss',

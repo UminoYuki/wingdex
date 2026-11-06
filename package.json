@@ -16,6 +16,7 @@
     "dist": "npm run build && npm run dist -w @ba/desktop",
     "dist:portable": "npm run build && npm run dist:portable -w @ba/desktop",
     "typecheck": "npm run typecheck -w @ba/server && npm run typecheck -w @ba/web && npm run typecheck -w @ba/desktop",
+    "test": "tsx --test packages/web/src/theme/*.test.ts packages/web/src/card/*.test.ts packages/web/src/card/skins/*.test.ts packages/web/src/store/*.test.ts",
     "check:grid": "npm run check:grid -w @ba/web"
   },
   "devDependencies": {

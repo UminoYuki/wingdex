@@ -271,7 +271,7 @@ interface PrintRowProps {
 
 function PrintRow({ icon, title, hint, enabled, onToggle, extra }: PrintRowProps) {
   return (
-    <div className="flex flex-col gap-2 rounded-md border border-white/[0.06] bg-white/[0.02] px-3 py-2">
+    <div className="flex flex-col gap-2 rounded-md border border-line/[0.06] bg-line/[0.02] px-3 py-2">
       <div className="flex items-center gap-3">
         <span className="text-plume">{icon}</span>
         <div className="min-w-0 flex-1">

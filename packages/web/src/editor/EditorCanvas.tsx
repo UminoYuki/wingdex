@@ -7,9 +7,12 @@ import { CardBack } from '../card/CardBack'
 import { Card3D } from '../card/Card3D'
 import { CARD_REGIONS, CARD_RATIO } from '../card/cardMetrics'
 import { Button, IconButton, Panel, Segmented, Tooltip } from '../components/ui'
+import { SkinFace } from '../card/skins/SkinFace'
 import { Grid3x3, Maximize2, Minus, Plus, Ruler, AlertTriangle } from 'lucide-react'
 import type { CardDraft, DraftIssue } from './draftTypes'
 import { draftToCard } from './draftTypes'
+import { usePrefsStore } from '../store/prefsStore'
+import { BACK_SKINS, CARD_SKINS } from '../card/skins/cardSkin'
 
 /** 图层 → 参考线区域（用于对齐提示） */
 const LAYER_REGION: Record<string, { top: number; bottom: number }> = {
@@ -62,6 +65,10 @@ export function EditorCanvas({
   const [grid, setGrid] = useState(false)
   const [guides, setGuides] = useState(true)
   const [face, setFace] = useState<'front' | 'back'>('front')
+  const cardSkin = usePrefsStore((state) => state.cardSkin)
+  const backSkin = usePrefsStore((state) => state.backSkin)
+  const setCardSkin = usePrefsStore((state) => state.setCardSkin)
+  const setBackSkin = usePrefsStore((state) => state.setBackSkin)
 
   const stageRef = useRef<HTMLDivElement | null>(null)
   const dragRef = useRef<{ id: string; startX: number; startY: number; baseDx: number; baseDy: number } | null>(null)
@@ -159,7 +166,7 @@ export function EditorCanvas({
     >
       <div className="flex flex-col items-center gap-4">
         <div
-          className="flex items-center gap-2"
+          className="flex flex-wrap items-center justify-center gap-2"
           onPointerDown={(event) => event.stopPropagation()}
         >
           <Tooltip label="缩小画布">
@@ -192,6 +199,18 @@ export function EditorCanvas({
           <Button size="sm" variant="ghost" icon={<Maximize2 className="h-3.5 w-3.5" />} onClick={() => setZoom(100)}>
             100%
           </Button>
+          <Segmented
+            size="sm"
+            value={cardSkin}
+            onValueChange={setCardSkin}
+            options={CARD_SKINS.map((item) => ({ value: item.id, label: item.label }))}
+          />
+          <Segmented
+            size="sm"
+            value={backSkin}
+            onValueChange={setBackSkin}
+            options={BACK_SKINS.map((item) => ({ value: item.id, label: item.label }))}
+          />
         </div>
 
         <div
@@ -212,6 +231,16 @@ export function EditorCanvas({
               onFaceChange={setFace}
               autoSway={false}
               className="w-full"
+              front={
+                cardSkin === 'atlas' ? undefined : (
+                  <SkinFace card={draftCard} data={cardData} exif={exif} skin={cardSkin} backSkin={backSkin} face="front" />
+                )
+              }
+              back={
+                backSkin === 'archive' ? undefined : (
+                  <SkinFace card={draftCard} data={cardData} exif={exif} skin={cardSkin} backSkin={backSkin} face="back" />
+                )
+              }
             />
           ) : view === 'front' ? (
             <GameCard
@@ -247,7 +276,9 @@ export function EditorCanvas({
         </div>
 
         <p className="text-micro text-fog-300">
-          当前图层：{activeLayerId ?? '未选中'} · 缩放 {zoom}% · 卡面比例恒定 59:86
+          当前图层：{activeLayerId ?? '未选中'} · 缩放 {zoom}% · 正面/背面画布固定为典藏卡，便于改图层。3D 预览跟随「
+          {CARD_SKINS.find((item) => item.id === cardSkin)?.label} / {BACK_SKINS.find((item) => item.id === backSkin)?.label}
+          」，导出 PNG 与打印仍是典藏卡面，不受倾斜和扫光影响。
         </p>
       </div>
     </Panel>

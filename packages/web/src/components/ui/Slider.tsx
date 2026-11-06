@@ -38,7 +38,7 @@ export function Slider({
         onValueChange={(next) => onValueChange(next[0] ?? min)}
         className="relative flex h-5 w-full touch-none items-center select-none"
       >
-        <SliderPrimitive.Track className="relative h-1 w-full grow overflow-hidden rounded-full bg-white/[0.10]">
+        <SliderPrimitive.Track className="relative h-1 w-full grow overflow-hidden rounded-full bg-line/[0.10]">
           <SliderPrimitive.Range className="absolute h-full bg-gradient-to-r from-moss-deep to-moss" />
         </SliderPrimitive.Track>
         <SliderPrimitive.Thumb className="block h-3.5 w-3.5 rounded-full border border-moss/70 bg-ink-800 shadow-elev-1 transition-transform duration-fast hover:scale-110 focus:outline-none" />

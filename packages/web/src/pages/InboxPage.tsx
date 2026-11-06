@@ -242,7 +242,7 @@ export default function InboxPage() {
             {photos.slice(0, 12).map((photo) => (
               <div
                 key={photo.id}
-                className="flex w-[188px] items-center gap-2 rounded-md border border-white/[0.08] bg-white/[0.03] px-2.5 py-2"
+                className="flex w-[188px] items-center gap-2 rounded-md border border-line/[0.08] bg-line/[0.03] px-2.5 py-2"
               >
                 <img src={`/api/media/photo/${photo.id}/thumb?size=240`} alt={photo.fileName} className="h-9 w-12 rounded-sm object-cover" />
                 <div className="flex min-w-0 flex-1 flex-col">

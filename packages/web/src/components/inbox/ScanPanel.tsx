@@ -96,7 +96,7 @@ export function ScanPanel({ roots, status, busy, onAddRoot, onRemoveRoot, onScan
           {roots.map((root) => (
             <li
               key={root.id}
-              className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-white/[0.08] bg-white/[0.02] px-3 py-2.5"
+              className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-line/[0.08] bg-line/[0.02] px-3 py-2.5"
             >
               <div className="flex min-w-0 flex-col">
                 <span className="clamp-1 text-body text-fog-100">{root.path}</span>

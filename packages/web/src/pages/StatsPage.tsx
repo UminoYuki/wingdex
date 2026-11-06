@@ -146,7 +146,7 @@ export default function StatsPage() {
               {(stats.data?.places ?? []).map((place, index) => (
                 <li
                   key={`${place.id ?? 'none'}-${place.name}`}
-                  className="flex items-center gap-3 rounded-md border border-white/[0.06] bg-white/[0.02] px-3 py-2"
+                  className="flex items-center gap-3 rounded-md border border-line/[0.06] bg-line/[0.02] px-3 py-2"
                 >
                   <span className="w-5 text-micro tabular-nums text-fog-300">{index + 1}</span>
                   <span className="min-w-0 flex-1 truncate text-body text-fog-100">{place.name}</span>
@@ -194,7 +194,7 @@ function DayThumb({ photo, onOpen }: { photo: Photo; onOpen: () => void }) {
     <button
       type="button"
       onClick={onOpen}
-      className="group relative aspect-[4/3] overflow-hidden rounded-md border border-white/[0.08] bg-ink-800 transition-all duration-fast hover:-translate-y-0.5 hover:border-moss/40"
+      className="group relative aspect-[4/3] overflow-hidden rounded-md border border-line/[0.08] bg-ink-800 transition-all duration-fast hover:-translate-y-0.5 hover:border-moss/40"
     >
       <img
         src={mediaUrl.thumb(photo.id, 240)}

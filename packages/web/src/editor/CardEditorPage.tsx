@@ -15,6 +15,7 @@ import {
   useUpdateCard,
 } from '../api/hooks'
 import { PageHeader } from '../components/AppShell'
+import { ThemeSwitcher } from '../components/ThemeSwitcher'
 import { Badge, Button, Dialog, ErrorState, Segmented, Skeleton, Switch, notify } from '../components/ui'
 import { exportCardPng } from '../lib/exportCard'
 import { BackPanel } from './BackPanel'
@@ -249,6 +250,7 @@ export default function CardEditorPage() {
         }
         actions={
           <>
+            <ThemeSwitcher />
             <Button variant="ghost" icon={<ArrowLeft className="h-4 w-4" />} onClick={() => navigate(`/cards/${cardId}`)}>
               返回详情
             </Button>

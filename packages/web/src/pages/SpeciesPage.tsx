@@ -130,7 +130,7 @@ export default function SpeciesPage() {
         }
       />
 
-      <section className="relative overflow-hidden rounded-lg border border-white/[0.08] bg-ink-800">
+      <section className="relative overflow-hidden rounded-lg border border-line/[0.08] bg-ink-800">
         {heroPhotoId ? (
           <img
             src={mediaUrl.thumb(heroPhotoId, 1600)}

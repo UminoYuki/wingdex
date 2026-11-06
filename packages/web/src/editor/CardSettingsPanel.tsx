@@ -114,7 +114,7 @@ export function CardSettingsPanel({ card, draft, photos, recalculating, onPatch,
                   type="button"
                   onClick={() => onPatch({ photoId: photo.id }, '更换卡图')}
                   className={`relative overflow-hidden rounded-md border transition-all duration-base hover:-translate-y-0.5 ${
-                    draft.photoId === photo.id ? 'border-ember ring-1 ring-ember/50' : 'border-white/[0.07]'
+                    draft.photoId === photo.id ? 'border-ember ring-1 ring-ember/50' : 'border-line/[0.07]'
                   }`}
                   style={{ aspectRatio: '4 / 3' }}
                 >

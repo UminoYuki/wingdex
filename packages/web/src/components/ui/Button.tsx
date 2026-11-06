@@ -12,9 +12,9 @@ const buttonVariants = cva(
           'bg-moss text-ink-900 shadow-elev-1 hover:bg-moss-soft hover:shadow-elev-2 active:translate-y-px',
         secondary:
           'glass text-fog-100 hover:border-moss/40 hover:bg-moss/10 active:translate-y-px',
-        ghost: 'text-fog-200 hover:bg-white/[0.06] hover:text-fog-100 active:bg-white/[0.09]',
+        ghost: 'text-fog-200 hover:bg-line/[0.06] hover:text-fog-100 active:bg-line/[0.09]',
         outline:
-          'border border-white/[0.14] bg-transparent text-fog-100 hover:border-moss/50 hover:text-moss-soft',
+          'border border-line/[0.14] bg-transparent text-fog-100 hover:border-moss/50 hover:text-moss-soft',
         danger: 'bg-danger/90 text-white hover:bg-danger active:translate-y-px',
         gold: 'bg-amber-gold text-ink-900 hover:brightness-110 active:translate-y-px',
       },

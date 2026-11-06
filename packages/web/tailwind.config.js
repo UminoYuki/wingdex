@@ -6,26 +6,28 @@ export default {
     extend: {
       colors: {
         ink: {
-          900: '#0F1512',
-          800: '#16201B',
-          700: '#1E2A24',
+          900: 'rgb(var(--c-ink-900) / <alpha-value>)',
+          800: 'rgb(var(--c-ink-800) / <alpha-value>)',
+          700: 'rgb(var(--c-ink-700) / <alpha-value>)',
         },
         moss: {
-          DEFAULT: '#57C785',
-          deep: '#3E9E6B',
-          soft: '#7FD1A5',
+          DEFAULT: 'rgb(var(--c-moss) / <alpha-value>)',
+          deep: 'rgb(var(--c-moss-deep) / <alpha-value>)',
+          soft: 'rgb(var(--c-moss-soft) / <alpha-value>)',
         },
-        plume: '#6FB3C9',
+        plume: 'rgb(var(--c-plume) / <alpha-value>)',
         amber: {
-          gold: '#E8B04B',
+          gold: 'rgb(var(--c-gold) / <alpha-value>)',
         },
-        danger: '#E5636F',
-        success: '#4FBF7B',
+        danger: 'rgb(var(--c-danger) / <alpha-value>)',
+        success: 'rgb(var(--c-success) / <alpha-value>)',
         fog: {
-          100: '#E8EFE9',
-          200: '#9FB0A5',
-          300: '#6E7F74',
+          100: 'rgb(var(--c-fog-100) / <alpha-value>)',
+          200: 'rgb(var(--c-fog-200) / <alpha-value>)',
+          300: 'rgb(var(--c-fog-300) / <alpha-value>)',
         },
+        line: 'rgb(var(--c-line) / <alpha-value>)',
+        recess: 'var(--surface-recess)',
       },
       fontFamily: {
         sans: [
@@ -50,9 +52,9 @@ export default {
         xl: '22px',
       },
       boxShadow: {
-        'elev-1': '0 1px 2px rgba(0,0,0,.4), inset 0 0 0 1px rgba(255,255,255,.06)',
-        'elev-2': '0 8px 24px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.06)',
-        'elev-3': '0 24px 60px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.07)',
+        'elev-1': 'var(--shadow-elev-1)',
+        'elev-2': 'var(--shadow-elev-2)',
+        'elev-3': 'var(--shadow-elev-3)',
       },
       transitionTimingFunction: {
         natural: 'cubic-bezier(0.22,1,0.36,1)',

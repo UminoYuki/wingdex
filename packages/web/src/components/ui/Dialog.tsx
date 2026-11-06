@@ -62,7 +62,7 @@ export function Dialog({
             className,
           )}
         >
-          <header className="flex items-start justify-between gap-4 border-b border-white/[0.08] px-5 py-4">
+          <header className="flex items-start justify-between gap-4 border-b border-line/[0.08] px-5 py-4">
             <div className="flex flex-col gap-1">
               <DialogPrimitive.Title className="text-title text-fog-100">{title}</DialogPrimitive.Title>
               {description ? (
@@ -73,7 +73,7 @@ export function Dialog({
             </div>
             <DialogPrimitive.Close
               aria-label="关闭"
-              className="rounded-md p-1 text-fog-300 transition-colors duration-fast hover:bg-white/[0.07] hover:text-fog-100"
+              className="rounded-md p-1 text-fog-300 transition-colors duration-fast hover:bg-line/[0.07] hover:text-fog-100"
             >
               <X className="h-4 w-4" />
             </DialogPrimitive.Close>
@@ -82,7 +82,7 @@ export function Dialog({
           <div className="min-h-0 flex-1 overflow-y-auto px-5 py-4">{children}</div>
 
           {footer ? (
-            <footer className="flex items-center justify-end gap-2 border-t border-white/[0.08] px-5 py-3">
+            <footer className="flex items-center justify-end gap-2 border-t border-line/[0.08] px-5 py-3">
               {footer}
             </footer>
           ) : null}

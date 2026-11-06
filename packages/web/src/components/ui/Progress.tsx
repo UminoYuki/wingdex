@@ -27,7 +27,7 @@ export function Progress({ value, max = 100, label, hint, tone = 'moss', size = 
           <span className="text-micro tabular-nums text-fog-300">{hint ?? `${Math.round(ratio * 100)}%`}</span>
         </div>
       ) : null}
-      <div className={cn('w-full overflow-hidden rounded-full bg-white/[0.08]', size === 'sm' ? 'h-1' : 'h-1.5')}>
+      <div className={cn('w-full overflow-hidden rounded-full bg-line/[0.08]', size === 'sm' ? 'h-1' : 'h-1.5')}>
         <div
           className={cn('h-full rounded-full bg-gradient-to-r transition-all duration-slow ease-natural', toneClass[tone])}
           style={{ width: `${ratio * 100}%` }}
@@ -89,7 +89,7 @@ export function ProgressRing({
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="rgba(255,255,255,0.09)"
+          stroke="var(--chart-track)"
           strokeWidth={thickness}
         />
         <circle

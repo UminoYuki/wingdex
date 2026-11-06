@@ -17,7 +17,7 @@ interface TabsProps {
 export function Tabs({ value, onValueChange, items, className }: TabsProps) {
   return (
     <TabsPrimitive.Root value={value} onValueChange={onValueChange} className={className}>
-      <TabsPrimitive.List className="flex items-center gap-1 rounded-md border border-white/[0.08] bg-white/[0.03] p-1">
+      <TabsPrimitive.List className="flex items-center gap-1 rounded-md border border-line/[0.08] bg-line/[0.03] p-1">
         {items.map((item) => (
           <TabsPrimitive.Trigger
             key={item.value}
@@ -29,7 +29,7 @@ export function Tabs({ value, onValueChange, items, className }: TabsProps) {
           >
             {item.label}
             {item.count === undefined ? null : (
-              <span className="rounded-full bg-white/[0.08] px-1.5 text-micro tabular-nums">{item.count}</span>
+              <span className="rounded-full bg-line/[0.08] px-1.5 text-micro tabular-nums">{item.count}</span>
             )}
           </TabsPrimitive.Trigger>
         ))}

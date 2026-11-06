@@ -4,7 +4,7 @@ export function Skeleton({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        'relative overflow-hidden rounded-md border border-white/[0.06] bg-white/[0.04]',
+        'wd-skeleton relative overflow-hidden rounded-md border border-line/10 bg-line/[0.04]',
         'after:absolute after:inset-0 after:animate-holo-shift after:bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent)] after:bg-[length:200%_100%]',
         className,
       )}

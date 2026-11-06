@@ -35,7 +35,7 @@ export function DistributionBars({ title, subtitle, rows, limit = 8, tone = 'mos
                   {row.species} 种 · {row.photos} 张
                 </span>
               </div>
-              <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/[0.06]">
+              <div className="h-1.5 w-full overflow-hidden rounded-full bg-line/[0.06]">
                 <div
                   className={cn('h-full rounded-full bg-gradient-to-r', BAR_TONE[tone])}
                   style={{ width: `${Math.max(6, (row.species / max) * 100)}%` }}

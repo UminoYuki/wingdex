@@ -21,8 +21,8 @@ export function Card({
       className={cn(
         'rounded-lg border',
         tone === 'glass' && 'glass shadow-elev-1',
-        tone === 'solid' && 'border-white/[0.08] bg-ink-800 shadow-elev-1',
-        tone === 'plain' && 'border-white/[0.08] bg-transparent',
+        tone === 'solid' && 'border-line/[0.08] bg-ink-800 shadow-elev-1',
+        tone === 'plain' && 'border-line/[0.08] bg-transparent',
         padded && 'p-4',
         interactive && 'lift cursor-pointer hover:border-moss/40 hover:shadow-elev-2',
         className,

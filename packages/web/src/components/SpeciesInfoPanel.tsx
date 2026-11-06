@@ -144,7 +144,7 @@ export function SpeciesInfoPanel({ species, morphology, protection, className }:
               <Sparkles className="h-3 w-3" />
               别名：
               {species.aliases.map((alias) => (
-                <span key={alias} className="rounded-full bg-white/[0.05] px-2 py-0.5 text-fog-200">
+                <span key={alias} className="rounded-full bg-line/[0.05] px-2 py-0.5 text-fog-200">
                   {alias}
                 </span>
               ))}

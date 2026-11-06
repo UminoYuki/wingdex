@@ -90,8 +90,15 @@ export const PAPER = {
 } as const
 
 export function rarityKey(value: string | null | undefined): RarityKey {
+  if (value === 'LEGEND' || value === '传说') return '传说'
   if (value && value in RARITY_STYLES) return value as RarityKey
   return 'N'
+}
+
+/** 库里的最高稀有度写成 LEGEND，卡面上仍显示「传说」。 */
+export function rarityLabel(value: string | null | undefined): string {
+  if (value === 'LEGEND' || value === '传说') return '传说'
+  return value || 'N'
 }
 
 export function attributeColor(attribute: string | null | undefined) {

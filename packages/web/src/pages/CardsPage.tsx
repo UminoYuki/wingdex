@@ -5,6 +5,7 @@ import type { CardListItem } from '../api/types'
 import { useCardList, useCardStats, useCreateCard, useSpeciesList } from '../api/hooks'
 import { PageHeader } from '../components/AppShell'
 import { CardViewer } from '../card/CardViewer'
+import { DeckBoard } from '../card/DeckBoard'
 import { GameCard } from '../card/GameCard'
 import { exportCardsBatch } from '../lib/exportCard'
 import {
@@ -143,7 +144,7 @@ export default function CardsPage() {
 
       <Panel
         title="卡片墙"
-        subtitle={`当前筛选命中 ${cards.length} 张 · 悬停抬升，点击查看正反面与导出`}
+        subtitle={`当前筛选命中 ${cards.length} 张 · 卡墙、展台与卡册共用同一批卡片`}
         actions={
           <div className="flex flex-wrap items-center gap-2">
             <div className="w-36">
@@ -151,7 +152,10 @@ export default function CardsPage() {
                 value={rarity}
                 options={[
                   { value: '', label: '全部稀有度' },
-                  ...Object.keys(RARITY_STYLES).map((item) => ({ value: item, label: item })),
+                  ...Object.keys(RARITY_STYLES)
+                    .filter((item) => item !== '传说')
+                    .map((item) => ({ value: item, label: item })),
+                  { value: 'LEGEND', label: '传说' },
                 ]}
                 onValueChange={setRarity}
               />
@@ -193,11 +197,7 @@ export default function CardsPage() {
             secondaryAction={{ label: '重置筛选', onClick: () => { setRarity(''); setAttribute('') } }}
           />
         ) : (
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 xl:grid-cols-6">
-            {cards.map((card) => (
-              <CardWallItem key={card.id} card={card} onOpen={() => setViewingId(card.id)} />
-            ))}
-          </div>
+          <DeckBoard cards={cards} onOpen={setViewingId} />
         )}
       </Panel>
 
@@ -243,7 +243,7 @@ export default function CardsPage() {
               onValueChange={setTargetSpecies}
             />
           </Field>
-          <p className="rounded-md border border-white/[0.06] bg-black/20 px-3 py-2.5 text-caption leading-relaxed text-fog-200">
+          <p className="rounded-md border border-line/[0.06] bg-recess px-3 py-2.5 text-caption leading-relaxed text-fog-200">
             卡片生成后会统计该物种的照片数与五星照片数，用于计算 DEF 记录值与资料完整度加成；如果还没有照片，仍可先生成卡片，
             之后再回来切换卡图。
           </p>

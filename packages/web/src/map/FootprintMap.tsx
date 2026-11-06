@@ -66,7 +66,7 @@ export function FootprintMap({ world, points, selectedId, onSelect, loading, cla
   }, [])
 
   return (
-    <div className={cn('relative w-full overflow-hidden rounded-lg border border-white/[0.08] bg-ink-900/70', className)}>
+    <div className={cn('relative w-full overflow-hidden rounded-lg border border-line/[0.08] bg-ink-900/70', className)}>
       <svg
         viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
         preserveAspectRatio="xMidYMid meet"
@@ -135,7 +135,7 @@ export function FootprintMap({ world, points, selectedId, onSelect, loading, cla
       </svg>
 
       <div className="pointer-events-none absolute inset-x-0 top-0 flex items-start justify-between p-3">
-        <div className="pointer-events-auto flex items-center gap-1.5 rounded-md border border-white/[0.08] bg-black/45 px-2 py-1 backdrop-blur-sm">
+        <div className="pointer-events-auto flex items-center gap-1.5 rounded-md border border-line/[0.08] bg-black/45 px-2 py-1 backdrop-blur-sm">
           <span className="text-micro text-fog-300">
             {loading
               ? '加载足迹…'
@@ -158,7 +158,7 @@ export function FootprintMap({ world, points, selectedId, onSelect, loading, cla
       </div>
 
       {hover ? (
-        <div className="pointer-events-none absolute bottom-3 left-3 rounded-md border border-white/[0.1] bg-black/70 px-3 py-2 backdrop-blur-sm">
+        <div className="pointer-events-none absolute bottom-3 left-3 rounded-md border border-line/[0.1] bg-black/70 px-3 py-2 backdrop-blur-sm">
           <p className="text-caption font-medium text-fog-100">{hover.name}</p>
           <p className="text-micro text-fog-300">
             {hover.photos} 张 · {hover.species} 种

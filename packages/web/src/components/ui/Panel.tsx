@@ -17,7 +17,7 @@ export function Panel({ title, subtitle, actions, icon, footer, className, bodyC
   return (
     <section className={cn('glass flex flex-col overflow-hidden rounded-lg shadow-elev-1', className)}>
       {title ? (
-        <header className="flex items-start justify-between gap-3 border-b border-white/[0.07] px-4 py-3">
+        <header className="flex items-start justify-between gap-3 border-b border-line/[0.07] px-4 py-3">
           <div className="flex items-start gap-2.5">
             {icon ? <span className="mt-0.5 text-moss">{icon}</span> : null}
             <div className="flex flex-col gap-0.5">
@@ -29,7 +29,7 @@ export function Panel({ title, subtitle, actions, icon, footer, className, bodyC
         </header>
       ) : null}
       <div className={cn('flex-1 p-4', bodyClassName)}>{children}</div>
-      {footer ? <footer className="border-t border-white/[0.07] px-4 py-3">{footer}</footer> : null}
+      {footer ? <footer className="border-t border-line/[0.07] px-4 py-3">{footer}</footer> : null}
     </section>
   )
 }
@@ -59,7 +59,7 @@ export function StatTile({
   return (
     <div className={cn('glass flex items-center gap-3 rounded-md px-3.5 py-3 shadow-elev-1', className)}>
       {icon ? (
-        <span className={cn('flex h-9 w-9 items-center justify-center rounded-md bg-white/[0.05]', toneClass)}>
+        <span className={cn('flex h-9 w-9 items-center justify-center rounded-md bg-line/[0.05]', toneClass)}>
           {icon}
         </span>
       ) : null}

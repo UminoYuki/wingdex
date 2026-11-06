@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, Download, Pencil, Printer, RefreshCw, Trash2 } from 'lucide-react'
 import { buildCardData, buildCardExif, composeTypeLine } from '../card/cardPreview'
-import { Card3D } from '../card/Card3D'
+import { SkinnedStage } from '../card/skins/SkinFace'
 import { CARD_RATIO } from '../card/cardMetrics'
 import { useCard, useDeleteCard } from '../api/hooks'
 import { PageHeader } from '../components/AppShell'
@@ -98,7 +98,7 @@ export default function CardDetailPage() {
               className="mx-auto w-full"
               style={{ maxWidth: `min(440px, calc((100vh - 300px) * ${CARD_RATIO}))` }}
             >
-              <Card3D
+              <SkinnedStage
                 card={data.card}
                 data={cardData}
                 exif={buildCardExif(data.photo)}
@@ -204,7 +204,7 @@ export default function CardDetailPage() {
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-start justify-between gap-4 border-b border-white/[0.05] pb-2 last:border-0 last:pb-0">
+    <div className="flex items-start justify-between gap-4 border-b border-line/[0.05] pb-2 last:border-0 last:pb-0">
       <dt className="shrink-0 text-caption text-fog-300">{label}</dt>
       <dd className="text-right text-caption text-fog-100">{value}</dd>
     </div>

@@ -30,7 +30,7 @@ export function SpeciesCard({ species, onToggleFavorite, onToggleWishlist, onCre
   return (
     <article
       className={cn(
-        'lift group relative flex aspect-[59/86] w-full flex-col overflow-hidden rounded-lg border border-white/[0.08] bg-ink-800 shadow-elev-1 hover:border-moss/40 hover:shadow-elev-3',
+        'lift group relative flex aspect-[59/86] w-full flex-col overflow-hidden rounded-lg border border-line/[0.08] bg-ink-800 shadow-elev-1 hover:border-moss/40 hover:shadow-elev-3',
         className,
       )}
     >

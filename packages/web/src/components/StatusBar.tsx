@@ -22,7 +22,7 @@ export function StatusBar() {
   const isDesktop = Boolean(window.birdAtlas)
 
   return (
-    <footer className="fixed inset-x-0 bottom-0 z-40 h-9 border-t border-white/[0.07] bg-ink-900/88 backdrop-blur-xl">
+    <footer className="no-print fixed inset-x-0 bottom-0 z-40 h-9 border-t border-line/10 bg-ink-900/88 backdrop-blur-xl">
       <div className="mx-auto flex h-full w-full max-w-[1560px] items-center justify-between gap-4 px-6 text-micro text-fog-200">
         <div className="flex items-center gap-4">
           <span className="flex items-center gap-1.5">

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import type { PointerEvent as ReactPointerEvent, ReactNode } from 'react'
 import { RotateCcw, Repeat2, ZoomIn } from 'lucide-react'
 import type { Card } from '../api/types'
 import { cn } from '../lib/cn'
@@ -7,6 +8,7 @@ import { GameCard, type GameCardData } from './GameCard'
 import { CardBack } from './CardBack'
 import { CARD_RADIUS } from './cardMetrics'
 import { useCardDrag } from './useCardDrag'
+import { pointerTilt, REST_TILT, type TiltSample } from './pointerTilt'
 import { IconButton } from '../components/ui'
 
 export interface Card3DExif {
@@ -31,6 +33,9 @@ interface Card3DProps {
   zoomable?: boolean
   showControls?: boolean
   onAnglesChange?: (angles: { rx: number; ry: number }) => void
+  /** 替换默认典藏正/背面。不传则仍渲染 GameCard / CardBack，导出路径不经过这里。 */
+  front?: ReactNode
+  back?: ReactNode
 }
 
 /** 翻面动画时长：外层 rotateY 的过渡时长（拖拽旋转时不生效） */
@@ -82,11 +87,14 @@ export function Card3D({
   zoomable = true,
   showControls = true,
   onAnglesChange,
+  front,
+  back,
 }: Card3DProps) {
   const reducedMotion = useReducedMotion()
   const [innerFace, setInnerFace] = useState<'front' | 'back'>(face ?? initialFace)
   const [zoom, setZoom] = useState(1)
   const [swaying, setSwaying] = useState(autoSway && !reducedMotion)
+  const [glare, setGlare] = useState<TiltSample>(REST_TILT)
   const stageRef = useRef<HTMLDivElement | null>(null)
 
   const flipped = innerFace === 'back'
@@ -138,6 +146,23 @@ export function Card3D({
     return () => window.removeEventListener('keydown', handler)
   }, [angles.rx, angles.ry, flip, reset, snapTo])
 
+  const trackGlare = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (reducedMotion || event.pointerType === 'touch') return
+    const rect = event.currentTarget.getBoundingClientRect()
+    setGlare(
+      pointerTilt({
+        clientX: event.clientX,
+        clientY: event.clientY,
+        left: rect.left,
+        top: rect.top,
+        width: rect.width,
+        height: rect.height,
+        maxTilt: 0,
+        reducedMotion: false,
+      }),
+    )
+  }
+
   return (
     <div className={cn('flex flex-col items-center gap-3', className)}>
       <div
@@ -148,6 +173,14 @@ export function Card3D({
         onPointerDown={(event) => {
           setSwaying(false)
           bind.onPointerDown(event)
+        }}
+        onPointerMove={(event) => {
+          bind.onPointerMove?.(event)
+          trackGlare(event)
+        }}
+        onPointerLeave={() => {
+          bind.onPointerLeave?.()
+          setGlare(REST_TILT)
         }}
         onDoubleClick={flip}
       >
@@ -172,7 +205,7 @@ export function Card3D({
           <div className="relative" style={{ backfaceVisibility: 'hidden' }}>
             <PaperSlices />
             {/* renderScale：把 3D 滚轮缩放传给卡面，卡图才会按放大后的实际像素重新取源图（否则 zoom 越大越糊） */}
-            <GameCard card={card} data={data} holoAngles={angles} renderScale={zoom} />
+            {front ?? <GameCard card={card} data={data} holoAngles={angles} renderScale={zoom} />}
             <span
               className="pointer-events-none absolute inset-0"
               style={{
@@ -180,11 +213,12 @@ export function Card3D({
                 background: `linear-gradient(${115 + angles.ry * 0.4}deg, rgba(255,255,255,.07) 0%, transparent 42%, rgba(0,0,0,.13) 100%)`,
               }}
             />
+            <GlareSpot sample={glare} />
           </div>
 
           <div className="absolute inset-0" style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}>
             <PaperSlices />
-            <CardBack card={card} cnName={data.cnName} exif={exif} />
+            {back ?? <CardBack card={card} cnName={data.cnName} exif={exif} />}
             <span
               className="pointer-events-none absolute inset-0"
               style={{
@@ -192,6 +226,7 @@ export function Card3D({
                 background: `linear-gradient(${115 - angles.ry * 0.4}deg, rgba(255,255,255,.06) 0%, transparent 46%, rgba(0,0,0,.15) 100%)`,
               }}
             />
+            <GlareSpot sample={glare} />
           </div>
         </div>
       </div>
@@ -210,10 +245,24 @@ export function Card3D({
             </IconButton>
           ) : null}
           <span className="text-micro text-fog-300">
-            拖拽旋转 · 双击翻面 · 滚轮缩放（{Math.round(zoom * 100)}%）
+            拖拽旋转 · 悬停扫光 · 双击翻面 · 滚轮缩放（{Math.round(zoom * 100)}%）
           </span>
         </div>
       ) : null}
     </div>
+  )
+}
+
+function GlareSpot({ sample }: { sample: TiltSample }) {
+  return (
+    <span
+      aria-hidden
+      className="wd-glare"
+      style={{
+        ['--glare-x' as string]: `${sample.glareX}%`,
+        ['--glare-y' as string]: `${sample.glareY}%`,
+        ['--glare-opacity' as string]: sample.active ? 0.7 : 0,
+      }}
+    />
   )
 }

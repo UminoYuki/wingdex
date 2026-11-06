@@ -158,7 +158,7 @@ function PhotoStream({ onOpen }: { onOpen: (ids: number[], index: number) => voi
           <header className="flex items-center gap-3">
             <h2 className="text-title text-fog-100">{group.day}</h2>
             <Badge tone="neutral">{group.photos.length} 张</Badge>
-            <span className="h-px flex-1 bg-white/[0.07]" />
+            <span className="h-px flex-1 bg-line/[0.07]" />
             <span className="text-micro text-fog-300">
               {group.places.length > 0 ? group.places.join(' · ') : '未标注地点'}
             </span>
@@ -169,7 +169,7 @@ function PhotoStream({ onOpen }: { onOpen: (ids: number[], index: number) => voi
                 key={photo.id}
                 type="button"
                 onClick={() => onOpen(ids, ids.indexOf(photo.id))}
-                className="group relative aspect-[4/3] overflow-hidden rounded-md border border-white/[0.08] bg-ink-800 transition-all duration-fast hover:-translate-y-0.5 hover:border-moss/40 hover:shadow-elev-2"
+                className="group relative aspect-[4/3] overflow-hidden rounded-md border border-line/[0.08] bg-ink-800 transition-all duration-fast hover:-translate-y-0.5 hover:border-moss/40 hover:shadow-elev-2"
               >
                 <img
                   src={mediaUrl.thumb(photo.id, 640)}
