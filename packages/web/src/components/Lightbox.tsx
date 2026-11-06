@@ -110,7 +110,7 @@ export function Lightbox() {
             ) : null}
           </div>
 
-          <footer className="border-t border-white/[0.08] bg-ink-900/70 px-5 py-3">
+          <footer className="border-t border-line/[0.08] bg-ink-900/70 px-5 py-3">
             {viewer.showExif ? (
               <div className="flex flex-col gap-2">
                 <ExifBadgeBar photo={photo ?? null} />

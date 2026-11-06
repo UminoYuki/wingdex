@@ -4,7 +4,10 @@ import { BrowserRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import App from './App'
 import { Toaster } from './components/ui'
+import { applyTheme, readStoredTheme } from './theme/skins'
 import './index.css'
+
+applyTheme(readStoredTheme())
 
 const queryClient = new QueryClient({
   defaultOptions: {

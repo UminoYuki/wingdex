@@ -96,7 +96,7 @@ export function MissingGeoPanel({ className }: MissingGeoPanelProps) {
           {items.map((item) => (
             <li
               key={item.id}
-              className="flex items-center gap-3 rounded-md border border-white/[0.06] bg-white/[0.02] px-3 py-2.5"
+              className="flex items-center gap-3 rounded-md border border-line/[0.06] bg-line/[0.02] px-3 py-2.5"
             >
               <MapPin className="h-4 w-4 shrink-0 text-fog-300" />
               <div className="flex min-w-0 flex-1 flex-col">

@@ -68,7 +68,7 @@ export function PresetPicker({
               className={`flex flex-col gap-1 rounded-md border px-3 py-2 text-left transition-all duration-base hover:-translate-y-0.5 ${
                 draft.preset === preset.key
                   ? 'border-ember/60 bg-ember/10'
-                  : 'border-white/[0.07] bg-white/[0.02] hover:bg-white/[0.05]'
+                  : 'border-line/[0.07] bg-line/[0.02] hover:bg-line/[0.05]'
               }`}
             >
               <span className="text-caption text-fog-100">{preset.name}</span>
@@ -96,7 +96,7 @@ export function PresetPicker({
               {templates.map((template) => (
                 <li
                   key={template.id}
-                  className="flex items-center gap-2 rounded-md border border-white/[0.07] bg-white/[0.02] px-2 py-1.5"
+                  className="flex items-center gap-2 rounded-md border border-line/[0.07] bg-line/[0.02] px-2 py-1.5"
                 >
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-caption text-fog-100">{template.name}</p>

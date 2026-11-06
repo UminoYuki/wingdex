@@ -11,9 +11,9 @@ export function Separator({ orientation = 'horizontal', label, className }: Sepa
   if (label) {
     return (
       <div className={cn('flex items-center gap-3', className)}>
-        <span className="h-px flex-1 bg-white/[0.08]" />
+        <span className="h-px flex-1 bg-line/[0.08]" />
         <span className="text-micro uppercase tracking-wider text-fog-300">{label}</span>
-        <span className="h-px flex-1 bg-white/[0.08]" />
+        <span className="h-px flex-1 bg-line/[0.08]" />
       </div>
     )
   }
@@ -22,7 +22,7 @@ export function Separator({ orientation = 'horizontal', label, className }: Sepa
     <SeparatorPrimitive.Root
       orientation={orientation}
       className={cn(
-        'shrink-0 bg-white/[0.08]',
+        'shrink-0 bg-line/[0.08]',
         orientation === 'horizontal' ? 'h-px w-full' : 'h-full w-px',
         className,
       )}

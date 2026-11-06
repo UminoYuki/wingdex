@@ -134,7 +134,7 @@ export function StickerTool({ draft, activeLayerId, onAdd, onUpdate, onRemove, o
                       type="button"
                       onClick={() => onUpdate(layer.id, { assetKey: asset.key }, '更换贴纸')}
                       className={`flex flex-col items-center gap-1 rounded-md border p-1 transition-colors duration-fast ${
-                        layer.assetKey === asset.key ? 'border-ember/60 bg-ember/10' : 'border-white/[0.07] hover:bg-white/[0.05]'
+                        layer.assetKey === asset.key ? 'border-ember/60 bg-ember/10' : 'border-line/[0.07] hover:bg-line/[0.05]'
                       }`}
                     >
                       <img

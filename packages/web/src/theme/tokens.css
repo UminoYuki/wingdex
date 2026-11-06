@@ -1,4 +1,8 @@
-:root {
+/* 界面皮肤：手账白 / 森绿 / 暗夜。森绿沿用既有夜间图鉴色，手账白与暗夜对齐来源主题的纸色与冷黑。
+   Tailwind 色板读取 --c-* 通道；非 Tailwind 样式读取同名十六进制变量。 */
+
+:root,
+html[data-theme='forest'] {
   --ink-900: #0f1512;
   --ink-800: #16201b;
   --ink-700: #1e2a24;
@@ -13,13 +17,43 @@
   --fog-200: #9fb0a5;
   --fog-300: #6e7f74;
 
+  --c-ink-900: 15 21 18;
+  --c-ink-800: 22 32 27;
+  --c-ink-700: 30 42 36;
+  --c-moss: 87 199 133;
+  --c-moss-deep: 62 158 107;
+  --c-moss-soft: 127 209 165;
+  --c-plume: 111 179 201;
+  --c-gold: 232 176 75;
+  --c-success: 79 191 123;
+  --c-danger: 229 99 111;
+  --c-fog-100: 232 239 233;
+  --c-fog-200: 159 176 165;
+  --c-fog-300: 110 127 116;
+  --c-line: 255 255 255;
+
   --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-strong: rgba(22, 32, 27, 0.88);
+  --surface-recess: rgba(0, 0, 0, 0.25);
   --hairline: rgba(255, 255, 255, 0.08);
   --hairline-strong: rgba(255, 255, 255, 0.14);
+  --scrollbar-thumb: rgba(255, 255, 255, 0.12);
+  --scrollbar-thumb-hover: rgba(87, 199, 133, 0.42);
+  --selection-bg: rgba(87, 199, 133, 0.32);
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --chart-grid: rgba(255, 255, 255, 0.06);
+  --chart-tick: #6e7f74;
+  --chart-tick-muted: #9fb0a5;
+  --chart-tooltip-bg: rgba(22, 32, 27, 0.94);
+  --chart-tooltip-border: rgba(255, 255, 255, 0.08);
+  --chart-tooltip-text: #e8efe9;
+  --chart-tooltip-label: #9fb0a5;
+  --chart-track: rgba(255, 255, 255, 0.09);
 
   --shadow-elev-1: 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
   --shadow-elev-2: 0 8px 24px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
   --shadow-elev-3: 0 24px 60px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+  --shadow-toast: 0 24px 60px rgba(0, 0, 0, 0.55);
 
   --ease-natural: cubic-bezier(0.22, 1, 0.36, 1);
   --dur-fast: 120ms;
@@ -30,6 +64,114 @@
   --top-nav-h: 56px;
   --status-bar-h: 36px;
   --card-ratio: 59 / 86;
+}
+
+html[data-theme='journal'] {
+  --ink-900: #f9f8f5;
+  --ink-800: #ffffff;
+  --ink-700: #f2efe8;
+  --moss: #2b613b;
+  --moss-deep: #1e462c;
+  --moss-soft: #3f7a52;
+  --plume: #1e5d8f;
+  --gold: #9e7422;
+  --success: #2b613b;
+  --danger: #b83a2a;
+  --fog-100: #1c1917;
+  --fog-200: #665e54;
+  --fog-300: #948b7f;
+
+  --c-ink-900: 249 248 245;
+  --c-ink-800: 255 255 255;
+  --c-ink-700: 242 239 232;
+  --c-moss: 43 97 59;
+  --c-moss-deep: 30 70 44;
+  --c-moss-soft: 63 122 82;
+  --c-plume: 30 93 143;
+  --c-gold: 158 116 34;
+  --c-success: 43 97 59;
+  --c-danger: 184 58 42;
+  --c-fog-100: 28 25 23;
+  --c-fog-200: 102 94 84;
+  --c-fog-300: 148 139 127;
+  --c-line: 28 25 23;
+
+  --glass-bg: rgba(255, 255, 255, 0.82);
+  --glass-strong: rgba(249, 248, 245, 0.94);
+  --surface-recess: rgba(28, 25, 23, 0.045);
+  --hairline: #e5e0d4;
+  --hairline-strong: #d8d2c4;
+  --scrollbar-thumb: rgba(28, 25, 23, 0.18);
+  --scrollbar-thumb-hover: rgba(158, 116, 34, 0.45);
+  --selection-bg: rgba(43, 97, 59, 0.18);
+  --grid-line: rgba(28, 25, 23, 0.045);
+  --chart-grid: rgba(28, 25, 23, 0.08);
+  --chart-tick: #665e54;
+  --chart-tick-muted: #665e54;
+  --chart-tooltip-bg: rgba(255, 255, 255, 0.96);
+  --chart-tooltip-border: #e5e0d4;
+  --chart-tooltip-text: #1c1917;
+  --chart-tooltip-label: #665e54;
+  --chart-track: rgba(28, 25, 23, 0.1);
+
+  --shadow-elev-1: 0 1px 3px rgba(35, 25, 15, 0.04), 0 1px 2px rgba(35, 25, 15, 0.02);
+  --shadow-elev-2: 0 4px 16px rgba(35, 25, 15, 0.05), 0 1px 4px rgba(35, 25, 15, 0.03);
+  --shadow-elev-3: 0 12px 32px rgba(35, 25, 15, 0.08), 0 2px 8px rgba(35, 25, 15, 0.04);
+  --shadow-toast: 0 12px 32px rgba(35, 25, 15, 0.12);
+}
+
+html[data-theme='obsidian'] {
+  --ink-900: #0c0e12;
+  --ink-800: #14171e;
+  --ink-700: #1a1e27;
+  --moss: #38b000;
+  --moss-deep: #2a8400;
+  --moss-soft: #7dde4a;
+  --plume: #3a86ff;
+  --gold: #f2a93b;
+  --success: #38b000;
+  --danger: #ff4757;
+  --fog-100: #f3f5f9;
+  --fog-200: #9aa2b5;
+  --fog-300: #676e82;
+
+  --c-ink-900: 12 14 18;
+  --c-ink-800: 20 23 30;
+  --c-ink-700: 26 30 39;
+  --c-moss: 56 176 0;
+  --c-moss-deep: 42 132 0;
+  --c-moss-soft: 125 222 74;
+  --c-plume: 58 134 255;
+  --c-gold: 242 169 59;
+  --c-success: 56 176 0;
+  --c-danger: 255 71 87;
+  --c-fog-100: 243 245 249;
+  --c-fog-200: 154 162 181;
+  --c-fog-300: 103 110 130;
+  --c-line: 255 255 255;
+
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-strong: rgba(12, 14, 18, 0.9);
+  --surface-recess: rgba(0, 0, 0, 0.32);
+  --hairline: rgba(255, 255, 255, 0.08);
+  --hairline-strong: rgba(255, 255, 255, 0.14);
+  --scrollbar-thumb: rgba(255, 255, 255, 0.14);
+  --scrollbar-thumb-hover: rgba(58, 134, 255, 0.5);
+  --selection-bg: rgba(58, 134, 255, 0.32);
+  --grid-line: rgba(255, 255, 255, 0.035);
+  --chart-grid: rgba(255, 255, 255, 0.06);
+  --chart-tick: #676e82;
+  --chart-tick-muted: #9aa2b5;
+  --chart-tooltip-bg: rgba(20, 23, 30, 0.96);
+  --chart-tooltip-border: rgba(255, 255, 255, 0.1);
+  --chart-tooltip-text: #f3f5f9;
+  --chart-tooltip-label: #9aa2b5;
+  --chart-track: rgba(255, 255, 255, 0.09);
+
+  --shadow-elev-1: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-elev-2: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-elev-3: 0 16px 40px rgba(0, 0, 0, 0.65);
+  --shadow-toast: 0 16px 40px rgba(0, 0, 0, 0.65);
 }
 
 html,
@@ -45,10 +187,13 @@ body {
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  transition:
+    background-color 0.24s ease,
+    color 0.24s ease;
 }
 
 ::selection {
-  background: rgba(87, 199, 133, 0.32);
+  background: var(--selection-bg);
   color: var(--fog-100);
 }
 
@@ -62,19 +207,19 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--scrollbar-thumb);
   border-radius: 999px;
   border: 2px solid transparent;
   background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(87, 199, 133, 0.42);
+  background: var(--scrollbar-thumb-hover);
   background-clip: content-box;
 }
 
 :focus-visible {
-  outline: 2px solid rgba(87, 199, 133, 0.6);
+  outline: 2px solid color-mix(in srgb, var(--moss) 70%, transparent);
   outline-offset: 2px;
 }
 

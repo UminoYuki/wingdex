@@ -20,7 +20,7 @@ function level(count: number): number {
 }
 
 const LEVEL_CLASS = [
-  'bg-white/[0.05]',
+  'bg-line/[0.05]',
   'bg-moss/25',
   'bg-moss/45',
   'bg-moss/70',

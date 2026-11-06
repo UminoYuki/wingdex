@@ -14,8 +14,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   return (
     <div
       className={cn(
-        'flex h-9 w-full items-center gap-2 rounded-md border bg-black/25 px-3 transition-colors duration-base',
-        invalid ? 'border-danger/70' : 'border-white/[0.10] focus-within:border-moss/60',
+        'flex h-9 w-full items-center gap-2 rounded-md border bg-recess px-3 transition-colors duration-base',
+        invalid ? 'border-danger/70' : 'border-line/[0.10] focus-within:border-moss/60',
         'focus-within:shadow-[0_0_0_3px_rgba(87,199,133,0.12)]',
         props.disabled && 'opacity-50',
         className,

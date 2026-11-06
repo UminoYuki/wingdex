@@ -127,7 +127,7 @@ export function LayerPanel({
                   className={`flex items-center gap-2 rounded-md border px-2 py-1.5 transition-colors duration-fast ${
                     activeLayerId === layer.id
                       ? 'border-ember/60 bg-ember/10'
-                      : 'border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.05]'
+                      : 'border-line/[0.06] bg-line/[0.02] hover:bg-line/[0.05]'
                   }`}
                 >
                   <button
@@ -209,7 +209,7 @@ function LayerRow({
   return (
     <div
       className={`group flex items-center gap-1.5 rounded-md border px-2 py-1.5 transition-colors duration-fast ${
-        active ? 'border-ember/60 bg-ember/10' : 'border-transparent hover:bg-white/[0.05]'
+        active ? 'border-ember/60 bg-ember/10' : 'border-transparent hover:bg-line/[0.05]'
       }`}
       title={hint}
     >

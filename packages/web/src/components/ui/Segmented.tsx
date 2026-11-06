@@ -25,7 +25,7 @@ export function Segmented<T extends string>({
     <div
       role="tablist"
       className={cn(
-        'inline-flex items-center gap-0.5 rounded-md border border-white/[0.08] bg-white/[0.03] p-0.5',
+        'inline-flex items-center gap-0.5 rounded-md border border-line/[0.08] bg-line/[0.03] p-0.5',
         className,
       )}
     >
@@ -43,7 +43,7 @@ export function Segmented<T extends string>({
               size === 'sm' ? 'h-6 px-2 text-micro' : 'h-7 px-2.5 text-caption',
               active
                 ? 'bg-moss/16 text-moss-soft shadow-elev-1'
-                : 'text-fog-300 hover:bg-white/[0.05] hover:text-fog-100',
+                : 'text-fog-300 hover:bg-line/[0.05] hover:text-fog-100',
             )}
           >
             {option.icon}

@@ -70,7 +70,7 @@ export function Combobox({
 
   return (
     <div ref={boxRef} className={cn('relative', className)}>
-      <div className="flex h-9 items-center gap-2 rounded-md border border-white/[0.10] bg-black/25 px-3 focus-within:border-moss/60 focus-within:shadow-[0_0_0_3px_rgba(87,199,133,0.12)]">
+      <div className="flex h-9 items-center gap-2 rounded-md border border-line/[0.10] bg-recess px-3 focus-within:border-moss/60 focus-within:shadow-[0_0_0_3px_rgba(87,199,133,0.12)]">
         <Search className="h-3.5 w-3.5 text-fog-300" />
         <input
           value={keyword}
@@ -119,7 +119,7 @@ export function Combobox({
       </div>
 
       {open ? (
-        <div className="absolute left-0 right-0 top-[calc(100%+6px)] z-[70] overflow-hidden rounded-md border border-white/[0.10] bg-ink-800/96 shadow-elev-3 backdrop-blur-xl animate-fade-in">
+        <div className="absolute left-0 right-0 top-[calc(100%+6px)] z-[70] overflow-hidden rounded-md border border-line/[0.10] bg-ink-800/96 shadow-elev-3 backdrop-blur-xl animate-fade-in">
           {loading ? (
             <p className="px-3 py-2.5 text-caption text-fog-300">正在检索维基百科…</p>
           ) : filtered.length === 0 ? (
@@ -134,7 +134,7 @@ export function Combobox({
                     onClick={() => commit(item)}
                     className={cn(
                       'flex w-full flex-col items-start gap-0.5 px-3 py-2 text-left transition-colors duration-fast',
-                      index === active ? 'bg-moss/12 text-fog-100' : 'text-fog-200 hover:bg-white/[0.05]',
+                      index === active ? 'bg-moss/12 text-fog-100' : 'text-fog-200 hover:bg-line/[0.05]',
                     )}
                   >
                     <span className="flex w-full items-center justify-between gap-2">

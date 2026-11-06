@@ -24,7 +24,7 @@ export function ScrollArea({ children, className, viewportClassName, orientation
           orientation="vertical"
           className="flex w-2 touch-none select-none p-0.5 transition-opacity duration-200"
         >
-          <ScrollAreaPrimitive.Thumb className="flex-1 rounded-full bg-white/[0.14] hover:bg-moss/45" />
+          <ScrollAreaPrimitive.Thumb className="flex-1 rounded-full bg-line/[0.14] hover:bg-moss/45" />
         </ScrollAreaPrimitive.Scrollbar>
       ) : null}
       {orientation !== 'vertical' ? (
@@ -32,7 +32,7 @@ export function ScrollArea({ children, className, viewportClassName, orientation
           orientation="horizontal"
           className="flex h-2 touch-none select-none flex-col p-0.5 transition-opacity duration-200"
         >
-          <ScrollAreaPrimitive.Thumb className="flex-1 rounded-full bg-white/[0.14] hover:bg-moss/45" />
+          <ScrollAreaPrimitive.Thumb className="flex-1 rounded-full bg-line/[0.14] hover:bg-moss/45" />
         </ScrollAreaPrimitive.Scrollbar>
       ) : null}
       <ScrollAreaPrimitive.Corner />

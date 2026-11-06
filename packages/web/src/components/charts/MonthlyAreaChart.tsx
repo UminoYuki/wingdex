@@ -1,5 +1,6 @@
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import { Panel } from '../ui'
+import { chartTooltipLabel, chartTooltipStyle } from '../../theme/chartChrome'
 
 interface MonthlyAreaChartProps {
   monthly: Array<{ month: string; photos: number; species: number }>
@@ -27,19 +28,10 @@ export function MonthlyAreaChart({ monthly, title = '月度拍摄节奏' }: Mont
                 <stop offset="100%" stopColor="#6FB3C9" stopOpacity={0.02} />
               </linearGradient>
             </defs>
-            <CartesianGrid stroke="rgba(255,255,255,0.06)" vertical={false} />
-            <XAxis dataKey="label" tick={{ fill: '#6E7F74', fontSize: 10 }} axisLine={false} tickLine={false} />
-            <YAxis tick={{ fill: '#6E7F74', fontSize: 10 }} axisLine={false} tickLine={false} width={38} />
-            <Tooltip
-              contentStyle={{
-                background: 'rgba(22,32,27,0.94)',
-                border: '1px solid rgba(255,255,255,0.08)',
-                borderRadius: 10,
-                fontSize: 12,
-                color: '#E8EFE9',
-              }}
-              labelStyle={{ color: '#9FB0A5' }}
-            />
+            <CartesianGrid stroke="var(--chart-grid)" vertical={false} />
+            <XAxis dataKey="label" tick={{ fill: 'var(--chart-tick)', fontSize: 10 }} axisLine={false} tickLine={false} />
+            <YAxis tick={{ fill: 'var(--chart-tick)', fontSize: 10 }} axisLine={false} tickLine={false} width={38} />
+            <Tooltip contentStyle={chartTooltipStyle} labelStyle={chartTooltipLabel} />
             <Area
               type="monotone"
               dataKey="photos"

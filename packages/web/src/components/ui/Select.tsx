@@ -31,7 +31,7 @@ export function Select({
     <SelectPrimitive.Root value={value} onValueChange={onValueChange} disabled={disabled}>
       <SelectPrimitive.Trigger
         className={cn(
-          'flex w-full items-center justify-between gap-2 rounded-md border border-white/[0.10] bg-black/25 px-3 text-body text-fog-100',
+          'flex w-full items-center justify-between gap-2 rounded-md border border-line/[0.10] bg-recess px-3 text-body text-fog-100',
           'transition-colors duration-base hover:border-moss/40 focus:border-moss/60 focus:outline-none',
           'data-[placeholder]:text-fog-300 disabled:cursor-not-allowed disabled:opacity-50',
           size === 'sm' ? 'h-7 text-caption' : 'h-9',
@@ -47,7 +47,7 @@ export function Select({
         <SelectPrimitive.Content
           position="popper"
           sideOffset={6}
-          className="z-[70] min-w-[var(--radix-select-trigger-width)] overflow-hidden rounded-md border border-white/[0.10] bg-ink-800/95 p-1 shadow-elev-3 backdrop-blur-xl animate-fade-in"
+          className="z-[70] min-w-[var(--radix-select-trigger-width)] overflow-hidden rounded-md border border-line/[0.10] bg-ink-800/95 p-1 shadow-elev-3 backdrop-blur-xl animate-fade-in"
         >
           <SelectPrimitive.Viewport className="max-h-72">
             {options.map((option) => (

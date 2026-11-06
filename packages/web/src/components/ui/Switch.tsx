@@ -31,7 +31,7 @@ export function Switch({ checked, onCheckedChange, label, hint, disabled, classN
         disabled={disabled}
         className={cn(
           'relative h-5 w-9 shrink-0 rounded-full border transition-colors duration-base',
-          checked ? 'border-moss/60 bg-moss/35' : 'border-white/[0.12] bg-black/40',
+          checked ? 'border-moss/60 bg-moss/35' : 'border-line/[0.12] bg-recess',
         )}
       >
         <SwitchPrimitive.Thumb

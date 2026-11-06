@@ -127,7 +127,7 @@ export function LayerInspector({ draft, layerId, onPatch, onResetLayer, onResetL
                 type="button"
                 onClick={() => patch({ color }, '调整颜色')}
                 className={`h-6 w-6 rounded-full border transition-transform duration-fast hover:scale-110 ${
-                  override.color === color ? 'border-ember ring-1 ring-ember/60' : 'border-white/20'
+                  override.color === color ? 'border-ember ring-1 ring-ember/60' : 'border-line/20'
                 }`}
                 style={{ background: color }}
                 aria-label={`使用颜色 ${color}`}
@@ -137,7 +137,7 @@ export function LayerInspector({ draft, layerId, onPatch, onResetLayer, onResetL
               type="color"
               value={override.color ?? '#E8EFE9'}
               onChange={(event) => patch({ color: event.target.value }, '调整颜色')}
-              className="h-6 w-9 cursor-pointer rounded-sm border border-white/15 bg-transparent"
+              className="h-6 w-9 cursor-pointer rounded-sm border border-line/15 bg-transparent"
               aria-label="自定义颜色"
             />
             <Button size="sm" variant="ghost" onClick={() => patch({ color: null }, '清除颜色')}>

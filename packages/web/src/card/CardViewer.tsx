@@ -5,7 +5,7 @@ import { mediaUrl } from '../api/client'
 import { useCard, useDeleteCard, usePhotos } from '../api/hooks'
 import { exportCardPng } from '../lib/exportCard'
 import { Badge, Button, Dialog, EmptyState, Segmented, Skeleton } from '../components/ui'
-import { Card3D } from './Card3D'
+import { SkinnedStage } from './skins/SkinFace'
 import { CARD_RATIO } from './cardMetrics'
 import { buildCardData, buildCardExif, composeTypeLine } from './cardPreview'
 import { ExifBadgeBar } from '../components/ExifBadgeBar'
@@ -108,7 +108,7 @@ export function CardViewer({ cardId, onClose }: CardViewerProps) {
               className="mx-auto w-full"
               style={{ maxWidth: `min(100%, calc((90vh - 260px) * ${CARD_RATIO}))` }}
             >
-              <Card3D
+              <SkinnedStage
                 card={card}
                 data={{ ...buildCardData(card, data.species, activePhoto), typeLine: composeTypeLine(data.species) }}
                 exif={buildCardExif(activePhoto)}
@@ -153,7 +153,7 @@ export function CardViewer({ cardId, onClose }: CardViewerProps) {
                       onClick={() => setPhotoIndex(index)}
                       className={cn(
                         'aspect-[4/3] overflow-hidden rounded-md border transition-all duration-fast',
-                        index === photoIndex ? 'border-moss shadow-[0_0_0_2px_rgba(87,199,133,.25)]' : 'border-white/[0.08] hover:border-white/25',
+                        index === photoIndex ? 'border-moss shadow-[0_0_0_2px_rgba(87,199,133,.25)]' : 'border-line/[0.08] hover:border-line/25',
                       )}
                     >
                       <img
@@ -171,11 +171,11 @@ export function CardViewer({ cardId, onClose }: CardViewerProps) {
 
             <section className="flex flex-col gap-2">
               <h3 className="text-title text-fog-100">卡面文本</h3>
-              <p className="rounded-md border border-white/[0.06] bg-black/20 p-3 text-caption leading-relaxed text-fog-100">
+              <p className="rounded-md border border-line/[0.06] bg-recess p-3 text-caption leading-relaxed text-fog-100">
                 {card.effectText}
               </p>
               {card.recordText ? (
-                <p className="rounded-md border border-white/[0.06] bg-black/20 p-3 text-caption leading-relaxed text-fog-200">
+                <p className="rounded-md border border-line/[0.06] bg-recess p-3 text-caption leading-relaxed text-fog-200">
                   {card.recordText}
                 </p>
               ) : null}

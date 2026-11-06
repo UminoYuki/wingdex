@@ -76,7 +76,7 @@ export function WikiPicker({
                   'w-full cursor-pointer rounded-md border px-3 py-2.5 text-left transition-colors duration-base',
                   activeTitle === candidate.title
                     ? 'border-moss/60 bg-moss/[0.08]'
-                    : 'border-white/[0.08] bg-white/[0.02] hover:border-moss/35',
+                    : 'border-line/[0.08] bg-line/[0.02] hover:border-moss/35',
                 )}
                 onClick={() => onPick(candidate.title)}
               >
@@ -106,7 +106,7 @@ export function WikiPicker({
         detailLoading ? (
           <Skeleton className="h-24 w-full" />
         ) : detail?.detail ? (
-          <div className="flex flex-col gap-2 rounded-md border border-white/[0.08] bg-white/[0.02] px-3 py-3">
+          <div className="flex flex-col gap-2 rounded-md border border-line/[0.08] bg-line/[0.02] px-3 py-3">
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-body text-fog-100">{detail.detail.title}</span>
               {detail.detail.qid ? <Badge tone="outline">{detail.detail.qid}</Badge> : null}
@@ -140,7 +140,7 @@ export function WikiPicker({
               <p className="text-micro text-amber-gold">部分资料缺失：{detail.detail.warnings.join('；')}</p>
             ) : null}
             {detail.cardSummary ? (
-              <p className="rounded-sm bg-black/30 px-2.5 py-2 text-micro leading-relaxed text-fog-200">
+              <p className="rounded-sm bg-recess px-2.5 py-2 text-micro leading-relaxed text-fog-200">
                 卡面摘要预览：{cardSummaryText(detail.cardSummary)}
               </p>
             ) : null}

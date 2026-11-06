@@ -68,6 +68,10 @@ export default function CardPrintPage() {
   useEffect(() => {
     document.body.style.margin = '0'
     document.body.style.background = debug ? '#101613' : 'transparent'
+    document.documentElement.dataset.flatCards = '1'
+    return () => {
+      delete document.documentElement.dataset.flatCards
+    }
   }, [debug])
 
   if (!data || !cardData) {

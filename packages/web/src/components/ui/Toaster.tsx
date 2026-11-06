@@ -3,11 +3,11 @@ import { AlertTriangle, CheckCircle2, Info, Sparkles, XCircle } from 'lucide-rea
 
 const baseOptions = {
   style: {
-    background: 'rgba(22,32,27,0.94)',
-    border: '1px solid rgba(255,255,255,0.10)',
-    color: '#E8EFE9',
+    background: 'var(--chart-tooltip-bg)',
+    border: '1px solid var(--chart-tooltip-border)',
+    color: 'var(--chart-tooltip-text)',
     backdropFilter: 'blur(14px)',
-    boxShadow: '0 24px 60px rgba(0,0,0,.55)',
+    boxShadow: 'var(--shadow-toast)',
     borderRadius: '10px',
     fontSize: '13px',
   },

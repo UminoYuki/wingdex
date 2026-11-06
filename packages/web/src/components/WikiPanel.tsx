@@ -58,7 +58,7 @@ export function WikiPanel({ species, onRefetch, refetching, className }: WikiPan
           </span>
         </div>
 
-        <div className="max-h-[420px] overflow-y-auto rounded-md border border-white/[0.06] bg-black/20 p-4">
+        <div className="max-h-[420px] overflow-y-auto rounded-md border border-line/[0.06] bg-recess p-4">
           {summary ? (
             <p className="whitespace-pre-wrap text-caption leading-[1.85] text-fog-100">{summary}</p>
           ) : (

@@ -312,7 +312,7 @@ function ChipInput({ label, hint, values, onChange }: ChipInputProps) {
           <button
             type="button"
             aria-label={`添加${label}`}
-            className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-md border border-white/[0.10] text-fog-200 transition-colors hover:border-moss/60 hover:text-moss"
+            className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-md border border-line/[0.10] text-fog-200 transition-colors hover:border-moss/60 hover:text-moss"
             onClick={commit}
           >
             <Plus className="h-4 w-4" />

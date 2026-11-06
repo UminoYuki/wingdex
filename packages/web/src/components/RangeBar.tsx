@@ -43,7 +43,7 @@ export function RangeBar({ label, value, min, max, unit, markers = [], tone = 'm
           {numeric === null ? formatMetric(null, unit) : formatMetric(value, unit)}
         </span>
       </div>
-      <div className="relative h-2 w-full overflow-hidden rounded-full bg-white/[0.07]">
+      <div className="relative h-2 w-full overflow-hidden rounded-full bg-line/[0.07]">
         <div
           className={cn('h-full rounded-full bg-gradient-to-r transition-all duration-slow ease-natural', toneClass[tone])}
           style={{ width: `${ratio * 100}%` }}
@@ -54,7 +54,7 @@ export function RangeBar({ label, value, min, max, unit, markers = [], tone = 'm
             <span
               key={marker.label}
               title={marker.label}
-              className="absolute top-0 h-full w-px bg-white/35"
+              className="absolute top-0 h-full w-px bg-line/35"
               style={{ left: `${markerRatio * 100}%` }}
             />
           )

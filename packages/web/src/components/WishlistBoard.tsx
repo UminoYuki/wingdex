@@ -35,7 +35,7 @@ export function WishlistBoard({ items, onRemove, onAchieve, emptyAction }: Wishl
         return (
           <article
             key={species.id}
-            className="lift group relative flex flex-col overflow-hidden rounded-lg border border-white/[0.08] bg-ink-800 shadow-elev-1 hover:border-plume/40"
+            className="lift group relative flex flex-col overflow-hidden rounded-lg border border-line/[0.08] bg-ink-800 shadow-elev-1 hover:border-plume/40"
           >
             <button
               type="button"

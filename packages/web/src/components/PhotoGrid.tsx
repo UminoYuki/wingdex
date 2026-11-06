@@ -43,7 +43,7 @@ export function PhotoGrid({
             key={photo.id}
             className={cn(
               'group relative aspect-[4/3] overflow-hidden rounded-md border bg-ink-800 transition-all duration-base ease-natural hover:-translate-y-0.5 hover:shadow-elev-2',
-              selected ? 'border-moss/70 shadow-[0_0_0_2px_rgba(87,199,133,0.25)]' : 'border-white/[0.08]',
+              selected ? 'border-moss/70 shadow-[0_0_0_2px_rgba(87,199,133,0.25)]' : 'border-line/[0.08]',
             )}
           >
             <button
@@ -82,7 +82,7 @@ export function PhotoGrid({
               <span
                 className={cn(
                   'pointer-events-none absolute right-2 top-2 z-20 flex h-5 w-5 items-center justify-center rounded-sm border transition-colors duration-fast',
-                  selected ? 'border-moss bg-moss text-ink-900' : 'border-white/40 bg-black/45 text-transparent',
+                  selected ? 'border-moss bg-moss text-ink-900' : 'border-line/40 bg-black/45 text-transparent',
                 )}
               >
                 <Check className="h-3 w-3" strokeWidth={2.6} />

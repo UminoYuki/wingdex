@@ -2,6 +2,7 @@ import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts'
 import type { GearRow } from '../../api/types'
 import { Panel } from '../ui'
 import { truncate } from '../../lib/format'
+import { chartTooltipStyle } from '../../theme/chartChrome'
 
 interface CameraDonutProps {
   cameras: GearRow[]
@@ -28,13 +29,7 @@ export function CameraDonut({ cameras, title = '机身出片占比' }: CameraDon
                 ))}
               </Pie>
               <Tooltip
-                contentStyle={{
-                  background: 'rgba(22,32,27,0.94)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  borderRadius: 10,
-                  fontSize: 12,
-                  color: '#E8EFE9',
-                }}
+                contentStyle={chartTooltipStyle}
                 formatter={(value: number, name) => [`${value} 张`, name]}
               />
             </PieChart>

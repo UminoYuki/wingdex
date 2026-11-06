@@ -26,7 +26,7 @@ export function Checkbox({ checked, onCheckedChange, label, hint, disabled, clas
         disabled={disabled}
         className={cn(
           'mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border transition-colors duration-fast',
-          checked ? 'border-moss bg-moss text-ink-900' : 'border-white/[0.16] bg-black/30 hover:border-moss/50',
+          checked ? 'border-moss bg-moss text-ink-900' : 'border-line/[0.16] bg-recess hover:border-moss/50',
         )}
       >
         <CheckboxPrimitive.Indicator>

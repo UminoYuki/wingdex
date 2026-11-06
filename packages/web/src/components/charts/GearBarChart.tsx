@@ -2,6 +2,7 @@ import { Bar, BarChart, Cell, ResponsiveContainer, Tooltip, XAxis, YAxis } from 
 import type { GearRow } from '../../api/types'
 import { Panel } from '../ui'
 import { truncate } from '../../lib/format'
+import { chartTooltipStyle } from '../../theme/chartChrome'
 
 interface GearBarChartProps {
   rows: GearRow[]
@@ -38,18 +39,12 @@ export function GearBarChart({ rows, title, subtitle, tone = 'moss' }: GearBarCh
               type="category"
               dataKey="label"
               width={132}
-              tick={{ fill: '#9FB0A5', fontSize: 11 }}
+              tick={{ fill: 'var(--chart-tick-muted)', fontSize: 11 }}
               axisLine={false}
               tickLine={false}
             />
             <Tooltip
-              contentStyle={{
-                background: 'rgba(22,32,27,0.94)',
-                border: '1px solid rgba(255,255,255,0.08)',
-                borderRadius: 10,
-                fontSize: 12,
-                color: '#E8EFE9',
-              }}
+              contentStyle={chartTooltipStyle}
               formatter={(value: number, _name, item) => [
                 `${value} 种 · ${(item.payload as GearRow).photoCount} 张`,
                 '战绩',
